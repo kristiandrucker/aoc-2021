@@ -1,6 +1,6 @@
-import challenges.Day01
+import challenges.Day04
 
 /**
  * Main entrypoint for Advent of Code.
  */
-fun main() = Day01().run()
+fun main() = Day04().run()

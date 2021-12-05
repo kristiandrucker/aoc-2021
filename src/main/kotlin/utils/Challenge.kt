@@ -1,16 +1,16 @@
 package utils
 
-interface Challenge <T, C> {
+interface Challenge <C> {
 
     /**
      * First part of the challenge.
      */
-    fun part1(input: List<C>): List<C>
+    fun part1(input: List<C>): Int
 
     /**
      * Second part of the challenge.
      */
-    fun part2(input: List<C>): List<C>
+    fun part2(input: List<C>): Int
 
     /**
      * Maps the input to a different list type.
@@ -28,8 +28,8 @@ interface Challenge <T, C> {
     fun run() {
         val input = inputMap(readInput())
 
-        println("Part1: ${part1(input).count()}")
-        println("Part2: ${part2(input).count()}")
+        println("Part1: ${part1(input)}")
+        println("Part2: ${part2(input)}")
     }
 
 }
