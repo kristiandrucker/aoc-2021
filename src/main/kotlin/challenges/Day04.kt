@@ -54,9 +54,9 @@ class Day04 : Challenge<String> {
         return results
     }
 
-    override fun part1(input: List<String>): Int = runBingo(input).first()
+    override fun part1(input: List<String>): Long = runBingo(input).first().toLong()
 
-    override fun part2(input: List<String>): Int = runBingo(input).last()
+    override fun part2(input: List<String>): Long = runBingo(input).last().toLong()
 
     override fun inputMap(input: List<String>): List<String> = input
 

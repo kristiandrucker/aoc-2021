@@ -31,15 +31,15 @@ fun List<MoveDirection>.sumDirection(direction: Direction): Int =
 
 class Day02 : Challenge<MoveDirection> {
 
-    override fun part1(input: List<MoveDirection>): Int {
+    override fun part1(input: List<MoveDirection>): Long {
         val depth = input.sumDirection(Direction.FORWARD)
         val hpDown = input.sumDirection(Direction.DOWN)
         val hpUp = input.sumDirection(Direction.UP)
 
-        return (hpDown - hpUp) * depth
+        return ((hpDown - hpUp) * depth).toLong()
     }
 
-    override fun part2(input: List<MoveDirection>): Int {
+    override fun part2(input: List<MoveDirection>): Long {
         var depth = 0
         var hp = 0
         var aim = 0
@@ -59,7 +59,7 @@ class Day02 : Challenge<MoveDirection> {
             }
         }
 
-        return depth * hp
+        return (depth * hp).toLong()
     }
 
     override fun inputMap(input: List<String>): List<MoveDirection> = input

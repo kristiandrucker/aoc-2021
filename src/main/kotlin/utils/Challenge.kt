@@ -5,12 +5,12 @@ interface Challenge <C> {
     /**
      * First part of the challenge.
      */
-    fun part1(input: List<C>): Int
+    fun part1(input: List<C>): Long
 
     /**
      * Second part of the challenge.
      */
-    fun part2(input: List<C>): Int
+    fun part2(input: List<C>): Long
 
     /**
      * Maps the input to a different list type.

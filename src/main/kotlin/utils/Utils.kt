@@ -3,6 +3,8 @@ package utils
 import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
+import java.util.*
+
 
 /**
  * Reads lines from the given input txt file.
@@ -23,6 +25,31 @@ fun ByteArray.toInt(): Int {
         result = result or (this[i].toInt() shl 8 * i)
     }
     return result
+}
+
+fun <T> Iterable<T>.batch(chunkSize: Int) =
+    withIndex().                        // create index value pairs
+    groupBy { it.index / chunkSize }.   // create grouping index
+    map { it.value.map { it.value } }   // split into different partitions
+
+
+/**
+ * Converts a list into a map.
+ */
+fun <T> List<T>.toMapWithCountValues(): Map<T, Int> {
+    val valueMap: MutableMap<T, Int> = mutableMapOf()
+    forEach(valueMap::plusOrAssign)
+    return valueMap
+}
+
+fun <T> MutableMap<T, Int>.plusOrAssign(idx: T) = plusOrAssign(idx, 1)
+
+fun <T> MutableMap<T, Int>.plusOrAssign(idx: T, num: Int) {
+    this[idx] = ( this[idx] ?: 0 ) + num
+}
+
+fun <T> MutableMap<T, Long>.plusOrAssign(idx: T, num: Long) {
+    this[idx] = ( this[idx] ?: 0 ) + num
 }
 
 /**
